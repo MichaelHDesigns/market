@@ -44,6 +44,10 @@ const Home: NextPage = () => {
           </Link>
         </div>
 
+         <div className={styles.container}>
+        {/* Top Section */}
+        <h1 className={styles.h1}>ALT NFTs For Sale</h1>
+        <hr className={styles.divider} />        
         <div className="main">
           {
             // If the listings are loading, show a loading message
