@@ -41,7 +41,7 @@ const Home: NextPage = () => {
 		  { /* Create Section */ }
         <h1 className={styles.h1}>Create NFTs</h1>
         <p className={styles.explain}>
-          using {" "}
+          use {" "}
           <b>
             {" "}
             <a
