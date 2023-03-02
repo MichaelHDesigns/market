@@ -33,7 +33,7 @@ const Home: NextPage = () => {
               THIRDWEB
             </a>
           </b>{" "}
-          to list your ERC721 and ERC1155 tokens for auction or for direct sale.
+          to create your NFTs for Auction or for Direct Sale.
         </p>
 
         <hr className={styles.divider} />
