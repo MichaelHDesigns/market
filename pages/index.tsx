@@ -35,8 +35,10 @@ const Home: NextPage = () => {
           </b>{" "}
           Network.
         </p>
-
+         </div>
+		 <div className={styles.container}>
         <hr className={styles.divider} />
+		  { /* Create Section */ }
         <h1 className={styles.h1}>Create NFTs</h1>
         <p className={styles.explain}>
           using {" "}
@@ -58,9 +60,10 @@ const Home: NextPage = () => {
             Create A Listing
           </Link>
         </div>
+		</div>
 
          <div className={styles.container}>
-        {/* Top Section */}
+        {/* Market Section */}
         <h1 className={styles.h1}>ALT NFTs For Sale</h1>
            
         <hr className={styles.divider} /> 
@@ -103,7 +106,6 @@ const Home: NextPage = () => {
               </div>
             )
           }
-        </div>
       </div>
     </>
   );
