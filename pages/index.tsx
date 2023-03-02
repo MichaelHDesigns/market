@@ -53,7 +53,7 @@ const Home: NextPage = () => {
               THIRDWEB
             </a>
           </b>{" "}
-          to create your NFTs for Auction or for Direct Sale.
+          to create your NFTs.
         </p>
         <div style={{ marginTop: 32, marginBottom: 32 }}>
           <Link href="/create" className={styles.mainButton} style={{ textDecoration: "none" }}>
@@ -67,7 +67,8 @@ const Home: NextPage = () => {
         {/* Market Section */}
         <h1 className={styles.h1}>ALT NFTs For Sale</h1>
            <p className={styles.explain}>
-          on the {" "}
+          NFTs for Sale or Auction
+		   on the {" "}
           <b>
             {" "}
             <a
