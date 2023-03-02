@@ -21,6 +21,24 @@ const Home: NextPage = () => {
         {/* Top Section */}
         <h1 className={styles.h1}>ALT NFT Marketplace</h1>
         <p className={styles.explain}>
+          on the {" "}
+          <b>
+            {" "}
+            <a
+              href="https://altcoinchain.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.red}
+            >
+              Altcoinchain
+            </a>
+          </b>{" "}
+          Network.
+        </p>
+
+        <hr className={styles.divider} />
+        <h1 className={styles.h1}>Create NFTs</h1>
+        <p className={styles.explain}>
           using {" "}
           <b>
             {" "}
@@ -33,11 +51,8 @@ const Home: NextPage = () => {
               THIRDWEB
             </a>
           </b>{" "}
-          to create your NFTs for Auction or for Direct Sale.
+          to list your NFTs for Auction or for Direct Sale.
         </p>
-
-        <hr className={styles.divider} />
-
         <div style={{ marginTop: 32, marginBottom: 32 }}>
           <Link href="/create" className={styles.mainButton} style={{ textDecoration: "none" }}>
             Create A Listing
@@ -47,6 +62,7 @@ const Home: NextPage = () => {
          <div className={styles.container}>
         {/* Top Section */}
         <h1 className={styles.h1}>ALT NFTs For Sale</h1>
+           
         <hr className={styles.divider} /> 
         </div>
         <div className="main">
