@@ -63,10 +63,10 @@ const Home: NextPage = () => {
 		</div>
 
          <div className={styles.container}>
+        <hr className={styles.divider} />
         {/* Market Section */}
         <h1 className={styles.h1}>ALT NFTs For Sale</h1>
-           
-        <hr className={styles.divider} /> 
+            
         </div>
         <div className="main">
           {
