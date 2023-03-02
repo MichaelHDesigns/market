@@ -65,22 +65,9 @@ const Home: NextPage = () => {
          <div className={styles.container}>
         <hr className={styles.divider} />
         {/* Market Section */}
-        <h1 className={styles.h1}>ALT NFTs For Sale</h1>
+        <h1 className={styles.h1}>ALT NFTs</h1>
            <p className={styles.explain}>
-          NFTs for Sale or Auction
-		   on the {" "}
-          <b>
-            {" "}
-            <a
-              href="https://altcoinchain.org/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.red}
-            >
-              Altcoinchain
-            </a>
-          </b>{" "}
-          Network.
+          NFTs for Sale or Auction.
         </p>
         </div>
         <div className="main">
