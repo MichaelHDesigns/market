@@ -19,16 +19,13 @@ export default function Header() {
               src="/logo.png"
               width={48}
               height={48}
-              alt="NFT marketplace sample logo"
+              alt="ALT Logo"
             />
           </Link>
 
           <div className={styles.navMiddle}>
-            <Link href="/buy" className={styles.link}>
-              Buy
-            </Link>
-            <Link href="/sell" className={styles.link}>
-              Sell
+            <Link href="/create" className={styles.link}>
+              Create
             </Link>
           </div>
         </div>
