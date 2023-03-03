@@ -25,7 +25,7 @@ export default function Header() {
       </div>
                <div className={styles.navMiddle}>
             <Link href="/create" className={styles.link}>
-              Buy
+              Create
             </Link>
           </div>
         </div>
