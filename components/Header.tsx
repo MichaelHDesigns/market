@@ -19,17 +19,16 @@ export default function Header() {
               src="/logo.png"
               width={48}
               height={48}
-              alt="ALT Logo"
+              alt="ALT logo"
             />
           </Link>
 
           <div className={styles.navMiddle}>
-            <Link href="/https://thirdweb.com/thirdweb.eth/TokenERC721" className={styles.link}>
+            <Link href="https://thirdweb.com/thirdweb.eth/TokenERC721" className={styles.link}>
               Create
             </Link>
-             </Link>
             <Link href="/create" className={styles.link}>
-              List
+              Sell
             </Link>
           </div>
         </div>
