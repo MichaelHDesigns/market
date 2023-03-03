@@ -1,54 +1,55 @@
-import { useAddress, useMetamask, useDisconnect } from "@thirdweb-dev/react";
+import { ConnectWallet, useAddress } from "@thirdweb-dev/react";
+import Image from "next/image";
 import Link from "next/link";
-import React from "react";
-import styles from "../styles/Home.module.css";
+import styles from "./Navbar.module.css";
 
-export default function Header() {
-  // Helpful thirdweb hooks to connect and manage the wallet from metamask.
+/**
+ * Navigation bar that shows up on all pages.
+ * Rendered in _app.tsx file above the page content.
+ */
+export function Header() {
   const address = useAddress();
-  const connectWithMetamask = useMetamask();
-  const disconnectWallet = useDisconnect();
 
   return (
-    <div className={styles.header}>
-      <div className={styles.left}>
-        <div>
-          <Link href="/" passHref role="button">
-            <img
-              src={`/logo.png`}
-              alt="Thirdweb Logo"
-              width={100}
-              style={{ cursor: "pointer" }}
+    <div className={styles.navContainer}>
+      <nav className={styles.nav}>
+        <div className={styles.navLeft}>
+          <Link href="/" className={`${styles.homeLink} ${styles.navLeft}`}>
+            <Image
+              src="/logo.png"
+              width={48}
+              height={48}
+              alt="NFT marketplace sample logo"
             />
           </Link>
+
+          <div className={styles.navMiddle}>
+            <Link href="/buy" className={styles.link}>
+              Buy
+            </Link>
+            <Link href="/sell" className={styles.link}>
+              Sell
+            </Link>
+          </div>
         </div>
-      </div>
-       <div className={styles.navLeft}>
-            <Link href="/create" className={styles.link}>
-              Create
-       </Link>
+
+        <div className={styles.navRight}>
+          <div className={styles.navConnect}>
+            <ConnectWallet />
+          </div>
+          {address && (
+            <Link className={styles.link} href={`/profile/${address}`}>
+              <Image
+                className={styles.profileImage}
+                src="/user-icon.png"
+                width={42}
+                height={42}
+                alt="Profile"
+              />
+            </Link>
+          )}
         </div>
-      <div className={styles.right}>
-        {address ? (
-          <>
-            <a
-              className={styles.secondaryButton}
-              onClick={() => disconnectWallet()}
-            >
-              Disconnect Wallet
-            </a>
-            <p style={{ marginLeft: 8, marginRight: 8, color: "grey" }}>|</p>
-            <p>{address.slice(0, 6).concat("...").concat(address.slice(-4))}</p>
-          </>
-        ) : (
-          <a
-            className={styles.mainButton}
-            onClick={() => connectWithMetamask()}
-          >
-            Connect Wallet
-          </a>
-        )}
-      </div>
+      </nav>
     </div>
   );
 }
