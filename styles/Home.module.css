@@ -205,6 +205,16 @@
   margin-right: 5%;
 }
 
+.link {
+  text-decoration: none;
+  transition: all 0.15s ease-in-out;
+  font-weight: 600;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
 .secondaryButton {
   cursor: pointer;
   text-align: center;
