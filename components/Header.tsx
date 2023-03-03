@@ -7,7 +7,7 @@ import styles from "../styles/Home.module.css";
  * Navigation bar that shows up on all pages.
  * Rendered in _app.tsx file above the page content.
  */
-export function Header() {
+export default function Header() {
   const address = useAddress();
 
   return (
