@@ -2,6 +2,7 @@ import { ConnectWallet, useAddress } from "@thirdweb-dev/react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "../styles/Navbar.module.css";
+import styles from "../styles/Home.module.css";
 
 /**
  * Navigation bar that shows up on all pages.
