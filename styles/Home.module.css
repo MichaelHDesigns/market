@@ -109,6 +109,14 @@
   margin-right: 5%;
 }
 
+.navLeft {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.15s ease-in-out;
+}
+
 .navMiddle {
   display: flex;
   margin-left: 12px;
