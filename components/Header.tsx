@@ -23,7 +23,7 @@ export default function Header() {
           </Link>
         </div>
       </div>
-       <div className={styles.navMiddle}>
+       <div className={styles.navLeft}>
             <Link href="/create" className={styles.link}>
               Create
        </Link>
