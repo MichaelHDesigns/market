@@ -23,6 +23,12 @@ export default function Header() {
           </Link>
         </div>
       </div>
+               <div className={styles.navMiddle}>
+            <Link href="/create" className={styles.link}>
+              Buy
+            </Link>
+          </div>
+        </div>
       <div className={styles.right}>
         {address ? (
           <>
