@@ -36,38 +36,7 @@ const Home: NextPage = () => {
           Network.
         </p>
          </div>
-		 <div className={styles.container}>
         <hr className={styles.divider} />
-		  { /* Create Section */ }
-        <h1 className={styles.h1}>Create NFTs</h1>
-        <p className={styles.explain}>
-          using {" "}
-          <b>
-            {" "}
-            <a
-              href="https://thirdweb.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.purple}
-            >
-              THIRDWEB
-            </a>
-          </b>{" "}
-          NFT Collection Smart Contracts. Create A NFT Collection,
-	  Deploy the contract,
-      	  Mint your NFTs & then list them
-	  on ALT NFT Marketplaceto create your NFTs.
-	  If you are ready to list, click Create below
-      	  & upload your NFT Collection Address along with
-	  token ID, set listing price & list your NFT
-        </p>
-        <div style={{ marginTop: 32, marginBottom: 32 }}>
-          <Link href="/create" className={styles.mainButton} style={{ textDecoration: "none" }}>
-            Create A Listing
-          </Link>
-        </div>
-		</div>
-
          <div className={styles.container}>
         <hr className={styles.divider} />
         {/* Market Section */}
