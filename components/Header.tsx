@@ -27,7 +27,6 @@ export default function Header() {
             <Link href="/create" className={styles.link}>
               Create
             </Link>
-          </div>
         </div>
       <div className={styles.right}>
         {address ? (
