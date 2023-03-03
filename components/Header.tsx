@@ -24,8 +24,12 @@ export default function Header() {
           </Link>
 
           <div className={styles.navMiddle}>
-            <Link href="/create" className={styles.link}>
+            <Link href="/https://thirdweb.com/thirdweb.eth/TokenERC721" className={styles.link}>
               Create
+            </Link>
+             </Link>
+            <Link href="/create" className={styles.link}>
+              List
             </Link>
           </div>
         </div>
