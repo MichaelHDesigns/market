@@ -109,6 +109,32 @@
   margin-right: 5%;
 }
 
+.navMiddle {
+  display: flex;
+  margin-left: 12px;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+}
+
+.link {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  line-height: 16px;
+  transition: color 0.3s ease-in-out;
+}
+
+.link:hover {
+  color: rgba(255, 255, 255, 1);
+}
+
+.homeLink:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
 .secondaryButton {
   cursor: pointer;
   text-align: center;
