@@ -27,6 +27,9 @@ export default function Header() {
             <Link href="https://thirdweb.com/thirdweb.eth/TokenERC721" className={styles.link}>
               Create
             </Link>
+            <Link href="/buy" className={styles.link}>
+              Buy
+            </Link>
             <Link href="/create" className={styles.link}>
               Sell
             </Link>

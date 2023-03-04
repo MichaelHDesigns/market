@@ -1,0 +1,11 @@
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/buy": "pages/buy.html",
+  "/create": "pages/create.html",
+  "/": "pages/index.html",
+  "/listing/[listingId]": "pages/listing/[listingId].html",
+  "/profile/[address]": "pages/profile/[address].html",
+  "/_document": "pages/_document.js",
+  "/404": "pages/404.html"
+}
