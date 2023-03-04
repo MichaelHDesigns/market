@@ -6,6 +6,7 @@
   "/": "pages/index.html",
   "/listing/[listingId]": "pages/listing/[listingId].html",
   "/profile/[address]": "pages/profile/[address].html",
+  "/gallery": "pages/gallery.html",
   "/_document": "pages/_document.js",
   "/404": "pages/404.html"
 }

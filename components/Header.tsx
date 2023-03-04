@@ -33,6 +33,9 @@ export default function Header() {
             <Link href="/create" className={styles.link}>
               Sell
             </Link>
+            <Link href="/gallery" className={styles.link}>
+              Gallery
+             </Link>
           </div>
         </div>
 

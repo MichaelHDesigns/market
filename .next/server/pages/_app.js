@@ -126,6 +126,11 @@ var Home_module_default = /*#__PURE__*/__webpack_require__.n(Home_module);
                                     href: "/create",
                                     className: (Home_module_default()).link,
                                     children: "Sell"
+                                }),
+                                /*#__PURE__*/ jsx_runtime_.jsx((link_default()), {
+                                    href: "/gallery",
+                                    className: (Home_module_default()).link,
+                                    children: "Gallery"
                                 })
                             ]
                         })
