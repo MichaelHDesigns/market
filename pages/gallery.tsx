@@ -31,7 +31,6 @@ const Gallery: NextPage = () => {
 
   return (
     <div className={styles.container}>
-      <ConnectWallet />
       {nfts && nfts?.length > 0 && (
         <div className={styles.cards}>
           {nfts
