@@ -1,5 +1,6 @@
 import styles from "../../styles/Thirdweb.module.css";
 import React from "react";
+import Image from "next/image";
 
 export default function ThirdwebGuideFooter() {
   const url = "https://altcoinchain.org";
@@ -28,7 +29,7 @@ export default function ThirdwebGuideFooter() {
           right: 18,
         }}
       >
-        <img
+        <Image
           src={"/logo.png"}
           alt="github url"
           width={40}
