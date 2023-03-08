@@ -1,5 +1,6 @@
 import styles from "../../styles/Profile.module.css";
 import randomColor from "../../util/randomColor";
+import background from "./public/logo.png";
 import Container from "../../components/Container/Container";
 import { marketplaceContractAddress, NFT_COLLECTION_ADDRESS } from "../../addresses";
 import { useRouter } from "next/router";
@@ -46,7 +47,7 @@ export default function ProfilePage() {
                 <div
                   className={styles.profilePicture}
                     style={{
-                        backgroundImage: `url("/logo.png")`,
+                        backgroundImage: `url(${background})`,
                     }}
                 />
                 <h1 className={styles.profileName}>
