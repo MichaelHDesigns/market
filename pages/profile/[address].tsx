@@ -46,7 +46,7 @@ export default function ProfilePage() {
                 <div
                   className={styles.profilePicture}
                     style={{
-                        background-image: url(src="/logo.png"),
+                        background-image: 'url(src="/logo.png")',
                     }}
                 />
                 <h1 className={styles.profileName}>
