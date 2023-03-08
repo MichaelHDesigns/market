@@ -45,9 +45,17 @@ export default function ProfilePage() {
                 />
                 <div
                     className={styles.profilePicture}
-                    style={{
-                        background: `linear-gradient(90deg, ${randomColor3}, ${randomColor4})`,
-                    }}
+                  
+                   <Image
+              src="/logo.png"
+              width={48}
+              height={48}
+              alt="ALT logo"
+            />
+                    
+                    // style={{
+                   //     background: `linear-gradient(90deg, ${randomColor3}, ${randomColor4})`,
+                   // }}
                 />
                 <h1 className={styles.profileName}>
                     {router.query.address ? (
