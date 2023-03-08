@@ -44,14 +44,14 @@ export default function ProfilePage() {
                     }}
                 />
                 <div
-                    className={styles.profilePicture}
-                  
-                   <Image
+                 <Link href="/" className={`${styles.profilePicture}`}>
+            <Image
               src="/logo.png"
               width={48}
               height={48}
               alt="ALT logo"
             />
+          </Link>
                     
                     // style={{
                    //     background: `linear-gradient(90deg, ${randomColor3}, ${randomColor4})`,
