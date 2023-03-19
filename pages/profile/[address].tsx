@@ -12,156 +12,81 @@ import ListingWrapper from "../../components/ListingWrapper/ListingWrapper";
 import { ListingType } from "@thirdweb-dev/sdk";
 import Link from "next/link";
 
-const [randomColor1, randomColor2, randomColor3, randomColor4] = [
-    randomColor(),
-    randomColor(),
-    randomColor(),
-    randomColor(),
-];
+const ProfilePage = () => {
+  const [selectedNFT, setSelectedNFT] = useState(null);
+  const { user } = useContext(AppContext);
+  const [darkMode, setDarkMode] = useState(false);
+  const [bio, setBio] = useState(user.bio);
 
-export default function ProfilePage() {
-    const router = useRouter();
-    const [tab, setTab] = useState<"nfts" | "listings" >("nfts");
-    const { contract: nftCollection } = useContract(NFT_COLLECTION_ADDRESS);
-    const { contract: marketplace } = useContract(marketplaceContractAddress, "marketplace");
+  const router = useRouter();
 
-    const { data: ownedNfts, isLoading: loadingOwnedNfts  } = useOwnedNFTs(
-        nftCollection,
-        router.query.address as string
-    );
+  const { nfts: ownedNfts, loading: ownedNftsLoading } = useOwnedNFTs({
+    contractAddress: NFT_COLLECTION_ADDRESS,
+    account: user.ethAddress,
+  });
 
-    const { data: listings, isLoading: loadingListings } =
-        useActiveListings(marketplace, {
-            seller: router.query.address as string,
-        });
+  const { listings: activeListings, loading: activeListingsLoading } = useActiveListings({
+    contractAddress: marketplaceContractAddress,
+    seller: user.ethAddress,
+    listingType: ListingType.SELLING,
+  });
 
-    return (
-        <Container maxWidth="lg">
-            <div className={styles.profileHeader}>
-                <div
-                    className={styles.coverImage}
-                    style={{
-                        background: `linear-gradient(90deg, ${randomColor1}, ${randomColor2})`,
-                    }}
-                />
-                <div
-                  className={styles.profilePicture}
-                    style={{
-                        backgroundImage: "url(/logo.png)" ,
-                    }}
-                />
-                <h1 className={styles.profileName}>
-                    {router.query.address ? (
-                        router.query.address.toString().substring(0, 4) +
-                        "..." +
-                        router.query.address.toString().substring(38, 42)
-                    ) : (
-                        <Skeleton width="320" />
-                    )}
-                </h1>
-            </div>
+  const handleToggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
 
-            <div className={styles.tabs}>
-                <h3
-                    className={`${styles.tab} 
-        ${tab === "nfts" ? styles.activeTab : ""}`}
-                    onClick={() => setTab("nfts")}
-                >
-                    NFTs
-                </h3>
-                <h3
-                    className={`${styles.tab} 
-        ${tab === "listings" ? styles.activeTab : ""}`}
-                    onClick={() => setTab("listings")}
-                >
-                    Listings
-                </h3>
-            </div>
+  const handleUpdateBio = (event) => {
+    setBio(event.target.value);
+  };
 
-            <div
-                className={`${tab === "nfts" ? styles.activeTabContent : styles.tabContent
-                    }`}
-            >
-                <div className="main">
-                    {
-                        // If the listings are loading, show a loading message
-                        loadingListings ? (
-                            <div>Loading listings...</div>
-                        ) : (
-                            // Otherwise, show the listings
-                            <div className={styles.listingGrid}>
-                                {listings?.map((listing) => (
-                                    <div
-                                        key={listing.id}
-                                        className={styles.listingShortView}
-                                        onClick={() => router.push(`/listing/${listing.id}`)}
-                                    >
-                                        <MediaRenderer
-                                            src={listing.asset.image}
-                                            style={{
-                                                borderRadius: 16,
-                                                // Fit the image to the container
-                                                width: "100%",
-                                                height: "100%",
-                                            }}
-                                        />
-                                        <h2 className={styles.nameContainer}>
-                                            <Link href={`/listing/${listing.id}`} className={styles.name}>
-                                                {listing.asset.name}
-                                            </Link>
-                                        </h2>
+  return (
+    <div className={`profile ${darkMode ? 'dark-mode' : ''}`}>
+      <div className={styles.profileHeader}>
+        <div className={styles.background} style={{ backgroundColor: randomColor() }}>
+          <img className={styles.logo} src={background} alt="logo" />
+        </div>
+        <div className={styles.profileHeaderInfo}>
+          <h1>{user.name}</h1>
+          <p>{user.email}</p>
+          <p>{user.bio}</p>
+        </div>
+        <div className={styles.profileHeaderActions}>
+          <button onClick={handleToggleDarkMode}>Toggle Dark Mode</button>
+        </div>
+      </div>
+      <Container>
+        <h2>Owned NFTs</h2>
+        {ownedNftsLoading ? (
+          <Skeleton />
+        ) : (
+          <NFTGrid
+            nfts={ownedNfts}
+            onNFTClick={(nft) => {
+              setSelectedNFT(nft);
+            }}
+          />
+        )}
+        <h2>Active Listings</h2>
+        {activeListingsLoading ? (
+          <Skeleton />
+        ) : (
+          <ListingWrapper listings={activeListings} />
+        )}
+        {selectedNFT && (
+          <MediaRenderer
+            assetUrl={selectedNFT.tokenURI}
+            mimeType="image/svg+xml"
+            render={(url) => (
+              <div className={styles.selectedNFTContainer}>
+                <img src={url} alt="selected NFT" />
+                <button onClick={() => setSelectedNFT(null)}>Close</button>
+              </div>
+            )}
+          />
+        )}
+      </Container>
+    </div>
+  );
+};
 
-                                        <p>
-                                            <b>{listing.buyoutCurrencyValuePerToken.displayValue}</b>{" "}
-                                            {listing.buyoutCurrencyValuePerToken.symbol}
-                                        </p>
-                                    </div>
-                                ))}
-                            </div>
-                        )
-                    }
-                </div>
-            </div>
-            <div className={`${tab === "listings" ? styles.activeTabContent : styles.tabContent }`}>
-               
-                    {
-                        // If the listings are loading, show a loading message
-                        loadingListings ? (
-                            <div>Loading listings...</div>
-                        ) : (
-                            // Otherwise, show the listings
-                            <div className={styles.listingGrid}>
-                                {listings?.map((listing) => (
-                                    <div
-                                        key={listing.id}
-                                        className={styles.listingShortView}
-                                        onClick={() => router.push(`/listing/${listing.id}`)}
-                                    >
-                                        <MediaRenderer
-                                            src={listing.asset.image}
-                                            style={{
-                                                borderRadius: 16,
-                                                // Fit the image to the container
-                                                width: "100%",
-                                                height: "100%",
-                                            }}
-                                        />
-                                        <h2 className={styles.nameContainer}>
-                                            <Link href={`/listing/${listing.id}`} className={styles.name}>
-                                                {listing.asset.name}
-                                            </Link>
-                                        </h2>
-
-                                        <p>
-                                            <b>{listing.buyoutCurrencyValuePerToken.displayValue}</b>{" "}
-                                            {listing.buyoutCurrencyValuePerToken.symbol}
-                                        </p>
-                                    </div>
-                                ))}
-                            </div>
-                        )
-                    }
-                </div>
-        </Container>
-    );
-}
+export default ProfilePage;
