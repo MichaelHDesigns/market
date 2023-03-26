@@ -47,7 +47,7 @@ export default function ProfilePage() {
                <div
   className={styles.profilePicture}
   style={{
-    backgroundImage: `url(${ownedNfts[0]?.image})`,
+    backgroundImage: `url(${ownedNfts && ownedNfts[0]?.image})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
   }}
