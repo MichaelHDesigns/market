@@ -44,12 +44,15 @@ export default function ProfilePage() {
                         background: `linear-gradient(90deg, ${randomColor1}, ${randomColor2})`,
                     }}
                 />
-                <div
-                  className={styles.profilePicture}
-                    style={{
-                        backgroundImage: "url(/logo.png)" ,
-                    }}
-                />
+               <div
+  className={styles.profilePicture}
+  style={{
+    backgroundImage: `url(${ownedNfts[0]?.image})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  }}
+/>
+
                 <h1 className={styles.profileName}>
                     {router.query.address ? (
                         router.query.address.toString().substring(0, 4) +
