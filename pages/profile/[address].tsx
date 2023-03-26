@@ -45,15 +45,13 @@ export default function ProfilePage() {
                     }}
                 />
                <div
-  className={styles.profilePicture}
-  style={{
-    backgroundImage: `url(${ownedNfts && ownedNfts[0]?.image})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  }}
-/>
-
-                <h1 className={styles.profileName}>
+                <div
+                  className={styles.profilePicture}
+                    style={{
+                        backgroundImage: "url(/logo.png)" ,
+                    }}
+                />
+                   <h1 className={styles.profileName}>
                     {router.query.address ? (
                         router.query.address.toString().substring(0, 4) +
                         "..." +
